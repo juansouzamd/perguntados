@@ -1,27 +1,39 @@
 /*
-   Projeto: Perguntados
-   Data de criação: 08/11/2022
-   Versão: 7
-   Data da modificação: 01/06/2023
-   Integrantes:
-     - Juan Souza Santos
-     - Kaick Santos Muniz
-     - Pedro Ferreira Lima
+    Nome do Projeto: Perguntados
+    Data de Criação: 08/11/2022
+    Versão: 7
+    Data da Última Modificação: 01/06/2023
+    Versão do Java: 17 (Oracle)
+    Equipe de Desenvolvimento:
+        - Juan Souza Santos
+        - Kaick Santos Muniz
+        - Pedro Ferreira Lima
+
+    Descrição: Este programa é um jogo de perguntas e respostas onde os jogadores devem responder corretamente a uma série de perguntas aleatórias para acumular pontos e obter uma classificação.
+
+    O programa possui funcionalidades como exibição de perguntas, cálculo de pontuação, classificação dos jogadores e armazenamento dos resultados em um banco de dados.
+
 */
 
+// O pacote "perguntas" contém as classes relacionadas ao gerenciamento de perguntas e respostas no jogo.
 package perguntas;
 
+// Importações das classes necessárias para o funcionamento do programa.
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Perguntas {
 
+    // Criação de um ArrayList chamado "perguntasEResp" que armazenará objetos da classe "Questoes".
     ArrayList<Questoes> perguntasEResp = new ArrayList<>();
 
+    // Método "perguntas" que recebe um parâmetro do tipo char e retorna um ArrayList de objetos da classe "Questoes". Esse método é responsável por gerar perguntas com base na escolha do jogador.
     public ArrayList<Questoes> perguntas(char escolha) {
 
+        // Limpa o ArrayList "perguntasEResp" para garantir que esteja vazio antes de adicionar novas perguntas.
         perguntasEResp.clear();
 
+        // Se a escolha for igual a 1, adiciona a lista as perguntas de nível fácil
         if (escolha == '1') {
 
             perguntasEResp.add(new Questoes("\n========== Jogo Perguntados ==========\n"+
@@ -225,10 +237,12 @@ public class Perguntas {
                     "D) Santos Dumont\n" +
                     "E) Nikola Tesla\n", "B", 30));
 
+            // Embaralha aleatoriamente a ordem das perguntas no ArrayList "perguntasEResp". Isso é feito utilizando o método shuffle da classe Collections, que randomiza a sequência dos elementos no ArrayList.
             Collections.shuffle(perguntasEResp);
 
             return perguntasEResp;
 
+            // Se a escolha for diferente de 1, adiciona a lista as perguntas de nível difícil
         } else {
 
             perguntasEResp.add(new Questoes("\n========== Jogo Perguntados ==========\n"+
@@ -431,6 +445,7 @@ public class Perguntas {
                     "D) Anemômetro\n" +
                     "E) Etilômetro\n", "E", 30)); // resposta correta
 
+            // Embaralha aleatoriamente a ordem das perguntas no ArrayList "perguntasEResp". Isso é feito utilizando o método shuffle da classe Collections, que randomiza a sequência dos elementos no ArrayList.
             Collections.shuffle(perguntasEResp);
 
             return perguntasEResp;
