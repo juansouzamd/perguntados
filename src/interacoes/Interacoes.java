@@ -27,7 +27,7 @@ import perguntas.Questoes;
 public class Interacoes {
 
     // Método estático "coferirResposta" que recebe uma string "resposta", um ArrayList de objetos da classe "Questoes" chamado "perguntas", um inteiro "vidas" e um inteiro "i". Esse método é responsável por verificar se a resposta fornecida pelo jogador está correta em relação à questão atual.
-    public static int coferirResposta(String resposta, ArrayList<Questoes> perguntas, int vidas, int i) {
+    public int coferirResposta(String resposta, ArrayList<Questoes> perguntas, int vidas, int i) {
         // Cria uma instância da classe "Menu" para exibir mensagens.
         Menu menu = new Menu();
 
@@ -73,7 +73,7 @@ public class Interacoes {
     }
 
     // Método estático "fimVidas" que recebe a pontuação do jogador como um inteiro "pontuacao" e a classificação do jogador como uma string "ranking". Esse método é responsável por exibir a mensagem de fim de jogo quando o jogador perde todas as vidas.
-    public static void fimVidas(int pontuacao, String ranking) {
+    public void fimVidas(int pontuacao, String ranking) {
 
         System.out.println("\nInfelizmente acabaram suas vidas.");
         System.out.println("Você fez " + pontuacao + " pontos.");
@@ -81,7 +81,7 @@ public class Interacoes {
     }
 
     // Método estático "fimDeJogo" que recebe a pontuação do jogador como um inteiro "pontuacao" e a classificação do jogador como uma string "ranking". Esse método é responsável por exibir a mensagem de fim de jogo quando o jogador conclui todas as perguntas.
-    public static void fimDeJogo(int pontuacao, String ranking) {
+    public void fimDeJogo(int pontuacao, String ranking) {
 
         System.out.println("\nParabéns você concluiu todas as perguntas");
         System.out.println("Você fez " + pontuacao + " pontos.");
@@ -89,7 +89,7 @@ public class Interacoes {
     }
 
     // Método estático "nivelDeJogo" que recebe uma opção de jogo como um caractere "opcao" e retorna o nível de dificuldade correspondente como uma string.
-    public static String nivelDeJogo(char opcao) {
+    public String nivelDeJogo(char opcao) {
         String nivel = "";
 
         if (opcao == '1') {
@@ -102,7 +102,7 @@ public class Interacoes {
     }
 
     // Método estático "limpaTela" que é responsável por limpar a tela do console antes de exibir a próxima pergunta
-    public static void limpaTela() {
+    public void limpaTela() {
         System.out.print("\npressione <enter> para ir para a próxima pergunta!.\n");
         new Scanner(System.in).nextLine();
         System.out.print("\033[H\033[2J");
@@ -110,7 +110,7 @@ public class Interacoes {
     }
 
     // Método estático "limpaTelaClassificacao" que é responsável por limpar a tela do console antes de exibir a classificação do jogador.
-    public static void limpaTelaClassificacao() {
+    public void limpaTelaClassificacao() {
         System.out.print("\npressione <enter> para ver sua classificação!.\n");
         new Scanner(System.in).nextLine();
         System.out.print("\033[H\033[2J");

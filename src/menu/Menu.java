@@ -83,6 +83,10 @@ public class Menu {
 
     // Método público "menuFinal" que exibe o menu de opções finais do jogo. Recebe o nome do jogador como parâmetro. O menu apresenta as opções de jogar novamente, iniciar um novo jogo, jogar como outro usuário, exibir o ranking e sair do jogo.
     public char menuFinal(String nome){
+
+        // Instancia um objeto da classe Ranking para lidar com a exibição do ranking.
+        Ranking ranking = new Ranking();
+
         char resposta;
 
         do {
@@ -101,7 +105,7 @@ public class Menu {
         }
 
         if(resposta == '4'){
-            Ranking.exibirClassificacao();
+            ranking.exibirClassificacao();
         }
 
         } while(resposta!='0' && resposta!='1' && resposta!='2' && resposta!='3');

@@ -86,7 +86,7 @@ public class Ranking {
     }
 
     // Método estático "exibirClassificacao" responsável por exibir o ranking dos jogadores armazenados no banco de dados.
-    public static void exibirClassificacao() {
+    public void exibirClassificacao() {
 
         // Exibe a mensagem de título "========== Ranking ==========" para indicar o início da exibição do ranking.
         System.out.println("\n========== Ranking ==========\n");

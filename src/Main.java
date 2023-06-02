@@ -37,6 +37,9 @@ public class Main {
         // Instancia um objeto da classe Menu para gerenciar as opções do menu.
         Menu menu = new Menu();
 
+        // Instancia um objeto da classe Interações para gerenciar as opções de interações com o usuário.
+        Interacoes interacoes = new Interacoes();
+
         // Instancia um objeto da classe Ranking para lidar com a classificação e o ranking.
         Ranking ranking =  new Ranking();
 
@@ -67,7 +70,7 @@ public class Main {
                 ArrayList<Questoes> perguntas = perguntasRespostas.perguntas(opcao);
 
                 // Obtem o nível de jogo com base na opção selecionada
-                nivel = Interacoes.nivelDeJogo(opcao);
+                nivel = interacoes.nivelDeJogo(opcao);
 
                 // Exibir a pergunta e obtem a resposta do jogador
                 for (int i = 0; i < perguntas.size(); i++) {
@@ -77,7 +80,7 @@ public class Main {
 
                     // Verificar se a resposta está correta e atualiza a pontuação e vidas
                     if (vidas > 0) {
-                        numeroResposta = Interacoes.coferirResposta(resposta, perguntas, vidas, i);
+                        numeroResposta = interacoes.coferirResposta(resposta, perguntas, vidas, i);
                     }
 
                     // Switch-case que avalia o valor da variável numeroResposta e executa diferentes ações com base nesse valor.
@@ -91,13 +94,13 @@ public class Main {
                     if (vidas == 0) {
                         i = perguntas.size();
                         classificacao = ranking.classificacao(pontuacao);
-                        Interacoes.fimVidas(pontuacao, classificacao);
+                        interacoes.fimVidas(pontuacao, classificacao);
                         ranking.guardarClassificacao(nome, nivel, classificacao, pontuacao);
 
                     // Se todas as perguntas forem respondidas corretamente, encerra o jogo obtém a classificação e salva os dados no banco de dados
                     } else if (i == perguntas.size() - 1) {
                         classificacao = ranking.classificacao(pontuacao);
-                        Interacoes.fimDeJogo(pontuacao, classificacao);
+                        interacoes.fimDeJogo(pontuacao, classificacao);
                         ranking.guardarClassificacao(nome, nivel, classificacao, pontuacao);
                     }
                 }
