@@ -2,8 +2,9 @@
     Nome do Projeto: Perguntados
     Data de Criação: 08/11/2022
     Versão: 7
-    Data da Última Modificação: 01/06/2023
+    Data da Última Modificação: 03/06/2023
     Versão do Java: 17 (Oracle)
+    Banco de dados: MySQL
     Equipe de Desenvolvimento:
         - Juan Souza Santos
         - Kaick Santos Muniz
@@ -12,9 +13,7 @@
     Descrição: Este programa é um jogo de perguntas e respostas onde os jogadores devem responder corretamente a uma série de perguntas aleatórias para acumular pontos e obter uma classificação.
 
     O programa possui funcionalidades como exibição de perguntas, cálculo de pontuação, classificação dos jogadores e armazenamento dos resultados em um banco de dados.
-
 */
-
 
 // Importações das classes necessárias para o funcionamento do programa.
 import java.util.*;
@@ -31,7 +30,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        // Instancia um objeto da classe Perguntas para lidar com perguntas e respostas
+        // Instancia um objeto da classe Perguntas para lidar com perguntas e respostas.
         Perguntas perguntasRespostas = new Perguntas();
 
         // Instancia um objeto da classe Menu para gerenciar as opções do menu.
@@ -53,32 +52,32 @@ public class Main {
 
             if (rodada == 0) {
 
-                // Menu inicial para obter o nome do jogador
+                // Menu inicial para obter o nome do jogador.
                 nome = menu.menuInicial();
 
-                // Menu para definir a dificuldade
+                // Menu para definir a dificuldade.
                 opcao = menu.menuSecundario(nome);
             } else {
 
-                 // Menu de rodada para continuar o jogo
+                 // Menu de rodada para continuar o jogo.
                 opcao = menu.menuRodada(nome);
             }
 
             if (opcao != '0') {
 
-                // Obtem as perguntas com base na opção selecionada
+                // Obtem as perguntas com base na opção selecionada.
                 ArrayList<Questoes> perguntas = perguntasRespostas.perguntas(opcao);
 
-                // Obtem o nível de jogo com base na opção selecionada
+                // Obtem o nível de jogo com base na opção selecionada.
                 nivel = interacoes.nivelDeJogo(opcao);
 
-                // Exibir a pergunta e obtem a resposta do jogador
+                // Exibir a pergunta e obtem a resposta do jogador.
                 for (int i = 0; i < perguntas.size(); i++) {
                     menu.write(perguntas.get(i).getPergunta());
                     menu.write("Digite a resposta: ");
                     resposta = input.nextLine();
 
-                    // Verificar se a resposta está correta e atualiza a pontuação e vidas
+                    // Verificar se a resposta está correta e atualiza a pontuação e vidas.
                     if (vidas > 0) {
                         numeroResposta = interacoes.coferirResposta(resposta, perguntas, vidas, i);
                     }
@@ -90,14 +89,14 @@ public class Main {
                         case 3 -> vidas = 0;
                     }
 
-                     // Se as vidas chegarem a zero, encerra o jogo obtém a classificação e salva os dados no banco de dados
+                     // Se as vidas chegarem a zero, encerra o jogo obtém a classificação e salva os dados no banco de dados.
                     if (vidas == 0) {
                         i = perguntas.size();
                         classificacao = ranking.classificacao(pontuacao);
                         interacoes.fimVidas(pontuacao, classificacao);
                         ranking.guardarClassificacao(nome, nivel, classificacao, pontuacao);
 
-                    // Se todas as perguntas forem respondidas corretamente, encerra o jogo obtém a classificação e salva os dados no banco de dados
+                    // Se todas as perguntas forem respondidas corretamente, encerra o jogo obtém a classificação e salva os dados no banco de dados.
                     } else if (i == perguntas.size() - 1) {
                         classificacao = ranking.classificacao(pontuacao);
                         interacoes.fimDeJogo(pontuacao, classificacao);
@@ -105,12 +104,12 @@ public class Main {
                     }
                 }
 
-                // Reiniciar as variáveis para a próxima rodada
+                // Reiniciar as variáveis para a próxima rodada.
                 vidas = 4;
                 pontuacao = 0;
                 numeroResposta = 0;
 
-                // Exibir o menu final para tomar a ação correspondente
+                // Exibir o menu final para tomar a ação correspondente.
                 respostaMenuFinal = menu.menuFinal(nome);
 
                 // Switch-case que avalia o valor da variável respostaMenuFinal e executa diferentes ações com base nesse valor.
@@ -122,12 +121,12 @@ public class Main {
             }
 
 
-            // Fechar a conexão com o banco de dados ao encerrar o jogo
+            // Fechar a conexão com o banco de dados ao encerrar o jogo.
             if(opcao == '0'){
                 BancoDados.closeConnection();
             }
         
-        // Encerra o jogo caso opcao seja igual a 0
+        // Encerra o jogo caso opcao seja igual a 0.
         } while (opcao != '0');
 
         // Fecha o objeto input que é utilizado para ler as entradas do usuário.

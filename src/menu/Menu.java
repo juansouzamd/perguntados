@@ -2,8 +2,9 @@
     Nome do Projeto: Perguntados
     Data de Criação: 08/11/2022
     Versão: 7
-    Data da Última Modificação: 01/06/2023
+    Data da Última Modificação: 03/06/2023
     Versão do Java: 17 (Oracle)
+    Banco de dados: MySQL
     Equipe de Desenvolvimento:
         - Juan Souza Santos
         - Kaick Santos Muniz
@@ -12,7 +13,6 @@
     Descrição: Este programa é um jogo de perguntas e respostas onde os jogadores devem responder corretamente a uma série de perguntas aleatórias para acumular pontos e obter uma classificação.
 
     O programa possui funcionalidades como exibição de perguntas, cálculo de pontuação, classificação dos jogadores e armazenamento dos resultados em um banco de dados.
-
 */
 
 // O pacote "menu" contém as classes relacionadas à implementação do menu de opções do jogo.
