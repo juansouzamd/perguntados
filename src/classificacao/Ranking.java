@@ -38,7 +38,7 @@ public class Ranking {
             resposta = "Prata";
         } else if (pontuacao <= 220 && pontuacao >= 180) {
             resposta = "Ouro";
-        } else if (pontuacao > 230) {
+        } else if (pontuacao >= 230) {
             resposta = "Diamante";
         } else {
             resposta = "Latão";
